@@ -1,36 +1,32 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-@layer base {
-  * {
-    @apply border-border;
-  }
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
 
-  body {
-    @apply antialiased;
-  }
+::-webkit-scrollbar-track {
+  background: transparent;
+}
 
-  /* Scrollbar styling */
-  ::-webkit-scrollbar {
-    width: 6px;
-  }
+::-webkit-scrollbar-thumb {
+  border-radius: 9999px;
+}
 
-  ::-webkit-scrollbar-track {
-    background: transparent;
-  }
+.dark ::-webkit-scrollbar-thumb {
+  background-color: #374151;
+}
 
-  ::-webkit-scrollbar-thumb {
-    @apply bg-gray-300 dark:bg-gray-700 rounded-full;
-  }
+:not(.dark) ::-webkit-scrollbar-thumb {
+  background-color: #d1d5db;
+}
 
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
 
 /* Flashcard 3D flip */
