@@ -5,8 +5,11 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'SavannahAI — Your Study Assistant',
-  description: 'AI-powered study assistant for academic excellence. Chat, flashcards, quizzes, essay outlines, case briefs, and concept explanations.',
+  title: 'SavannahAI — Study Assistant | SULC',
+  description: 'AI-powered study assistant for Savannah Richard at Southern University Law Center. Chat, flashcards, quizzes, essay outlines, IRAC case briefs, and concept explanations.',
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({

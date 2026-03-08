@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+@theme {
+  /* Southern University Jaguars colors */
+  --color-su-blue: #73C2E1;
+  --color-su-gold: #FDBB30;
+  --color-su-blue-dark: #4A9BBF;
+  --color-su-blue-light: #A8D8EA;
+  --color-su-gold-dark: #D4990A;
+  --color-su-gold-light: #FDD872;
+}
+
 /* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 6px;

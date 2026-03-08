@@ -74,19 +74,19 @@ export default function QuizView({ context }: Props) {
         <div className="w-full max-w-md space-y-4">
           <h2 className="text-lg font-semibold text-center">❓ Quiz Mode</h2>
           <p className="text-sm text-gray-500 dark:text-gray-400 text-center">
-            Enter a topic and I&apos;ll generate a quiz to test your knowledge
+            Enter a topic and I&apos;ll generate a quiz
           </p>
           <input
             value={topic}
             onChange={(e) => setTopic(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && generate()}
-            placeholder="e.g. Civil Rights Movement key events"
-            className="w-full px-4 py-3 rounded-xl bg-gray-100 dark:bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            placeholder="e.g. Torts — Negligence elements"
+            className="w-full px-4 py-3 rounded-xl bg-gray-100 dark:bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-[#73C2E1]"
           />
           <button
             onClick={generate}
             disabled={loading || !topic.trim()}
-            className="w-full py-3 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 disabled:opacity-50 transition-colors flex items-center justify-center gap-2"
+            className="w-full py-3 bg-[#73C2E1] text-white rounded-xl hover:bg-[#4A9BBF] disabled:opacity-50 transition-colors flex items-center justify-center gap-2"
           >
             {loading ? <><Loader2 className="w-4 h-4 animate-spin" /> Generating...</> : 'Start Quiz'}
           </button>
@@ -101,19 +101,19 @@ export default function QuizView({ context }: Props) {
     return (
       <div className="flex flex-col items-center justify-center h-full px-4 gap-6">
         <div className="text-center">
-          <p className="text-5xl font-bold bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">
+          <p className="text-5xl font-bold bg-gradient-to-r from-[#73C2E1] to-[#FDBB30] bg-clip-text text-transparent">
             {pct}%
           </p>
           <p className="text-lg mt-2">
             {score} out of {questions.length} correct
           </p>
           <p className="text-sm text-gray-500 mt-1">
-            {pct >= 80 ? '🔥 Excellent!' : pct >= 60 ? '👍 Good job!' : '📚 Keep studying!'}
+            {pct >= 80 ? '🔥 Excellent work, Savannah!' : pct >= 60 ? '👍 Good job! Keep going!' : '📚 Keep studying — you got this!'}
           </p>
         </div>
         <button
           onClick={reset}
-          className="flex items-center gap-2 px-6 py-3 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition-colors"
+          className="flex items-center gap-2 px-6 py-3 bg-[#73C2E1] text-white rounded-xl hover:bg-[#4A9BBF] transition-colors"
         >
           <RotateCcw className="w-4 h-4" /> Try Again
         </button>
@@ -158,8 +158,8 @@ export default function QuizView({ context }: Props) {
         </div>
 
         {selected !== null && (
-          <div className="bg-indigo-50 dark:bg-indigo-900/20 rounded-xl p-4 text-sm">
-            <p className="font-medium text-indigo-700 dark:text-indigo-300">Explanation:</p>
+          <div className="bg-[#73C2E1]/10 dark:bg-[#73C2E1]/5 rounded-xl p-4 text-sm">
+            <p className="font-medium text-[#4A9BBF]">Explanation:</p>
             <p className="mt-1 text-gray-700 dark:text-gray-300">{q.explanation}</p>
           </div>
         )}
@@ -167,7 +167,7 @@ export default function QuizView({ context }: Props) {
         {selected !== null && (
           <button
             onClick={next}
-            className="w-full py-3 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition-colors"
+            className="w-full py-3 bg-[#73C2E1] text-white rounded-xl hover:bg-[#4A9BBF] transition-colors"
           >
             {currentQ < questions.length - 1 ? 'Next Question' : 'See Results'}
           </button>

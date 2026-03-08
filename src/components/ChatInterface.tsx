@@ -41,7 +41,8 @@ export default function ChatInterface({ mode, context }: Props) {
       <div className="flex-1 overflow-y-auto px-4 py-6 space-y-4">
         {messages.length === 0 && (
           <div className="flex flex-col items-center justify-center h-full text-gray-400 dark:text-gray-600">
-            <p className="text-lg font-medium">Ready to study ✨</p>
+            <p className="text-4xl mb-3">🐆</p>
+            <p className="text-lg font-medium">Ready to study, Savannah ✨</p>
             <p className="text-sm mt-1">Ask a question or pick a study mode above</p>
           </div>
         )}
@@ -50,7 +51,7 @@ export default function ChatInterface({ mode, context }: Props) {
         ))}
         {isLoading && messages[messages.length - 1]?.role === 'user' && (
           <div className="flex gap-3">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#73C2E1] to-[#FDBB30] flex items-center justify-center">
               <Loader2 className="w-4 h-4 text-white animate-spin" />
             </div>
             <div className="bg-gray-100 dark:bg-gray-800 rounded-2xl px-4 py-3">
@@ -71,13 +72,13 @@ export default function ChatInterface({ mode, context }: Props) {
             value={input}
             onChange={handleInputChange}
             placeholder={placeholders[mode]}
-            className="flex-1 px-4 py-3 rounded-xl bg-gray-100 dark:bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 placeholder-gray-400"
+            className="flex-1 px-4 py-3 rounded-xl bg-gray-100 dark:bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-[#73C2E1] placeholder-gray-400"
             disabled={isLoading}
           />
           <button
             type="submit"
             disabled={isLoading || !input.trim()}
-            className="px-4 py-3 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="px-4 py-3 bg-[#73C2E1] text-white rounded-xl hover:bg-[#4A9BBF] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             <Send className="w-4 h-4" />
           </button>

@@ -56,12 +56,12 @@ export default function FlashcardView({ context }: Props) {
             onChange={(e) => setTopic(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && generate()}
             placeholder="e.g. Constitutional Law Amendments 1-10"
-            className="w-full px-4 py-3 rounded-xl bg-gray-100 dark:bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="w-full px-4 py-3 rounded-xl bg-gray-100 dark:bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-[#73C2E1]"
           />
           <button
             onClick={generate}
             disabled={loading || !topic.trim()}
-            className="w-full py-3 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 disabled:opacity-50 transition-colors flex items-center justify-center gap-2"
+            className="w-full py-3 bg-[#73C2E1] text-white rounded-xl hover:bg-[#4A9BBF] disabled:opacity-50 transition-colors flex items-center justify-center gap-2"
           >
             {loading ? <><Loader2 className="w-4 h-4 animate-spin" /> Generating...</> : 'Generate Flashcards'}
           </button>
@@ -87,13 +87,13 @@ export default function FlashcardView({ context }: Props) {
           }`}
         >
           {/* Front */}
-          <div className="absolute inset-0 backface-hidden rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 text-white p-8 flex flex-col items-center justify-center shadow-xl">
+          <div className="absolute inset-0 backface-hidden rounded-2xl bg-gradient-to-br from-[#73C2E1] to-[#4A9BBF] text-white p-8 flex flex-col items-center justify-center shadow-xl">
             <p className="text-xs uppercase tracking-wider mb-4 opacity-70">Question</p>
             <p className="text-lg font-medium text-center">{cards[current].question}</p>
           </div>
           {/* Back */}
-          <div className="absolute inset-0 backface-hidden [transform:rotateY(180deg)] rounded-2xl bg-gray-100 dark:bg-gray-800 p-8 flex flex-col items-center justify-center shadow-xl">
-            <p className="text-xs uppercase tracking-wider mb-4 text-gray-500">Answer</p>
+          <div className="absolute inset-0 backface-hidden [transform:rotateY(180deg)] rounded-2xl bg-gradient-to-br from-[#FDBB30] to-[#D4990A] text-gray-900 p-8 flex flex-col items-center justify-center shadow-xl">
+            <p className="text-xs uppercase tracking-wider mb-4 opacity-70">Answer</p>
             <p className="text-base text-center">{cards[current].answer}</p>
           </div>
         </div>

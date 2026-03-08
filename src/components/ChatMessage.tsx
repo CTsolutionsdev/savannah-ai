@@ -16,8 +16,8 @@ export default function ChatMessage({ role, content }: Props) {
       <div
         className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
           isUser
-            ? 'bg-indigo-600 text-white'
-            : 'bg-gradient-to-br from-purple-500 to-indigo-600 text-white'
+            ? 'bg-[#73C2E1] text-white'
+            : 'bg-gradient-to-br from-[#73C2E1] to-[#FDBB30] text-white'
         }`}
       >
         {isUser ? <User className="w-4 h-4" /> : <Sparkles className="w-4 h-4" />}
@@ -25,7 +25,7 @@ export default function ChatMessage({ role, content }: Props) {
       <div
         className={`max-w-[80%] rounded-2xl px-4 py-3 ${
           isUser
-            ? 'bg-indigo-600 text-white'
+            ? 'bg-[#73C2E1] text-white'
             : 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100'
         }`}
       >

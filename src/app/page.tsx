@@ -46,7 +46,7 @@ export default function Home() {
         {renderMode()}
       </div>
       <footer className="text-center py-3 text-xs text-gray-400 dark:text-gray-600 border-t border-gray-100 dark:border-gray-900">
-        Built with ❤️ by <a href="https://ctsolutions.dev" className="hover:text-indigo-500 transition-colors">CTSolutions.dev</a>
+        Built with ❤️ by <a href="https://ctsolutions.dev" className="hover:text-[#73C2E1] transition-colors">CTSolutions.dev</a> · Go Jaguars 🐆
       </footer>
     </div>
   );

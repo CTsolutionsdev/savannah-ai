@@ -33,13 +33,12 @@ export default function StudyModes({ active, onSelect }: Props) {
           onClick={() => onSelect(m.id)}
           className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-all ${
             active === m.id
-              ? 'bg-indigo-600 text-white shadow-md shadow-indigo-500/25'
+              ? 'bg-[#73C2E1] text-white shadow-md shadow-[#73C2E1]/25'
               : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700'
           }`}
         >
           {m.icon}
-          <span className="hidden sm:inline">{m.label}</span>
-          <span className="sm:hidden">{m.label}</span>
+          <span>{m.label}</span>
         </button>
       ))}
     </div>
