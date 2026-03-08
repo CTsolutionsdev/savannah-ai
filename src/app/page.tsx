@@ -12,6 +12,8 @@ import CaseBrief from '@/components/CaseBrief';
 import ConceptExplainer from '@/components/ConceptExplainer';
 import WelcomeScreen from '@/components/WelcomeScreen';
 import KeyboardShortcuts from '@/components/KeyboardShortcuts';
+import ErrorBoundary from '@/components/ErrorBoundary';
+import ToastContainer from '@/components/Toast';
 import { StudyMode } from '@/lib/types';
 
 export default function Home() {
@@ -37,6 +39,7 @@ export default function Home() {
     <>
       <WelcomeScreen onComplete={handleReady} />
       <KeyboardShortcuts onModeChange={setMode} />
+      <ToastContainer />
       <div className={`flex flex-col h-screen transition-opacity duration-500 ${ready ? 'opacity-100' : 'opacity-0'}`}>
         <Header />
         <div className="max-w-5xl mx-auto w-full px-4 py-3 space-y-3">
@@ -44,7 +47,9 @@ export default function Home() {
           <ContextInput context={context} onContextChange={setContext} />
         </div>
         <div className="flex-1 overflow-hidden max-w-5xl mx-auto w-full">
-          {renderMode()}
+          <ErrorBoundary>
+            {renderMode()}
+          </ErrorBoundary>
         </div>
         <footer className="text-center py-3 text-xs text-gray-400 dark:text-gray-600 border-t border-gray-100 dark:border-gray-900">
           Built with ❤️ by <a href="https://ctsolutions.dev" className="hover:text-[#73C2E1] transition-colors">CTSolutions.dev</a> · Go Jaguars 🐆 · <span className="text-gray-500">⌘1-6 to switch modes</span>
