@@ -11,7 +11,9 @@
   "dependencies": {
     "@ai-sdk/anthropic": "^0.0.56",
     "@ai-sdk/openai": "^0.0.72",
+    "@tailwindcss/typography": "^0.5.19",
     "ai": "^4.3.19",
+    "framer-motion": "^12.35.1",
     "lucide-react": "^0.577.0",
     "marked": "^17.0.4",
     "next": "16.1.6",

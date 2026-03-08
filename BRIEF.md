@@ -1,5 +1,15 @@
 # SavannahAI — Build Brief
 
+## About Savannah
+- **Savannah Richard** — Beka's daughter, Chase's future bonus daughter
+- Attending **Southern University Law Center (SULC)** in Baton Rouge, LA
+- Southern University is an HBCU (Historically Black College and University)
+- Founded 1880, NCAA Division I FCS, Southwestern Athletic Conference (SWAC)
+- **Mascot:** Jaguars 🐆
+- **School Colors:** Columbia Blue (#73C2E1) + Gold (#FDBB30)
+- SULC offers JD, JD/MPA dual degree, certificates in Environmental Law and Civil Rights Law
+- Law school established 1947
+
 ## What
 AI-powered study assistant web app for Savannah Richard, a student at Southern University (Baton Rouge). Built as a gift from her stepdad Chase (CTSolutions.dev).
 
