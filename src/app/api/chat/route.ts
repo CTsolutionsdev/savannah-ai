@@ -2,6 +2,8 @@ import { streamText } from 'ai';
 import { anthropic } from '@ai-sdk/anthropic';
 import { SYSTEM_PROMPTS } from '@/lib/prompts';
 
+export const maxDuration = 30;
+
 export async function POST(req: Request) {
   const { messages, mode = 'chat', context = '' } = await req.json();
 
