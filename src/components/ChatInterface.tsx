@@ -1,6 +1,6 @@
 'use client';
 
-import { useChat } from '@ai-sdk/react';
+import { useChat } from 'ai/react';
 import { useEffect, useRef } from 'react';
 import { Send, Loader2 } from 'lucide-react';
 import ChatMessage from './ChatMessage';
@@ -23,7 +23,6 @@ export default function ChatInterface({ mode, context }: Props) {
     scrollRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  // Reset messages when mode changes
   useEffect(() => {
     setMessages([]);
   }, [mode, setMessages]);
@@ -66,10 +65,7 @@ export default function ChatInterface({ mode, context }: Props) {
         <div ref={scrollRef} />
       </div>
 
-      <form
-        onSubmit={handleSubmit}
-        className="border-t border-gray-200 dark:border-gray-800 px-4 py-3"
-      >
+      <form onSubmit={handleSubmit} className="border-t border-gray-200 dark:border-gray-800 px-4 py-3">
         <div className="flex gap-2 max-w-3xl mx-auto">
           <input
             value={input}
