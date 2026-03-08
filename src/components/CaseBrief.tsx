@@ -2,7 +2,7 @@
 
 import { useChat } from '@ai-sdk/react';
 import { Send, Loader2 } from 'lucide-react';
-import ReactMarkdown from 'react-markdown';
+import { renderMarkdown } from '@/lib/markdown';
 
 interface Props {
   context: string;
@@ -35,9 +35,10 @@ export default function CaseBrief({ context }: Props) {
                   </div>
                 ) : (
                   <div className="bg-gray-100 dark:bg-gray-800 rounded-2xl px-6 py-4">
-                    <div className="prose dark:prose-invert prose-sm max-w-none">
-                      <ReactMarkdown>{m.content}</ReactMarkdown>
-                    </div>
+                    <div
+                      className="prose dark:prose-invert prose-sm max-w-none"
+                      dangerouslySetInnerHTML={{ __html: renderMarkdown(m.content) }}
+                    />
                   </div>
                 )}
               </div>

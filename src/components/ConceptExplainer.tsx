@@ -3,7 +3,7 @@
 import { useChat } from '@ai-sdk/react';
 import { useState } from 'react';
 import { Send, Loader2 } from 'lucide-react';
-import ReactMarkdown from 'react-markdown';
+import { renderMarkdown } from '@/lib/markdown';
 
 interface Props {
   context: string;
@@ -20,12 +20,11 @@ export default function ConceptExplainer({ context }: Props) {
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Append depth instruction to the input
-    const form = e.target as HTMLFormElement;
-    const inputEl = form.querySelector('input') as HTMLInputElement;
-    const originalValue = inputEl.value;
-    // Modify the input temporarily to include depth
     const depthLabels = ['like I\'m 5', 'beginner', 'intermediate', 'advanced', 'expert'];
+    const form = e.target as HTMLFormElement;
+    const inputEl = form.querySelector('input[type="text"]') as HTMLInputElement;
+    if (!inputEl || !inputEl.value.trim()) return;
+    const originalValue = inputEl.value;
     inputEl.value = `${originalValue} [Explain at depth level ${depth}/5: ${depthLabels[depth - 1]}]`;
     handleSubmit(e);
     inputEl.value = originalValue;
@@ -68,9 +67,10 @@ export default function ConceptExplainer({ context }: Props) {
                   </div>
                 ) : (
                   <div className="bg-gray-100 dark:bg-gray-800 rounded-2xl px-6 py-4">
-                    <div className="prose dark:prose-invert prose-sm max-w-none">
-                      <ReactMarkdown>{m.content}</ReactMarkdown>
-                    </div>
+                    <div
+                      className="prose dark:prose-invert prose-sm max-w-none"
+                      dangerouslySetInnerHTML={{ __html: renderMarkdown(m.content) }}
+                    />
                   </div>
                 )}
               </div>
@@ -99,6 +99,7 @@ export default function ConceptExplainer({ context }: Props) {
       <form onSubmit={onSubmit} className="border-t border-gray-200 dark:border-gray-800 px-4 py-3">
         <div className="flex gap-2 max-w-3xl mx-auto">
           <input
+            type="text"
             value={input}
             onChange={handleInputChange}
             placeholder="What concept should I explain?"

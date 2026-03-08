@@ -1,7 +1,7 @@
 'use client';
 
-import ReactMarkdown from 'react-markdown';
 import { User, Sparkles } from 'lucide-react';
+import { renderMarkdown } from '@/lib/markdown';
 
 interface Props {
   role: 'user' | 'assistant';
@@ -32,9 +32,10 @@ export default function ChatMessage({ role, content }: Props) {
         {isUser ? (
           <p className="whitespace-pre-wrap text-sm">{content}</p>
         ) : (
-          <div className="prose dark:prose-invert prose-sm max-w-none prose-p:my-1 prose-ul:my-1 prose-ol:my-1 prose-headings:my-2">
-            <ReactMarkdown>{content}</ReactMarkdown>
-          </div>
+          <div
+            className="prose dark:prose-invert prose-sm max-w-none prose-p:my-1 prose-ul:my-1 prose-ol:my-1 prose-headings:my-2"
+            dangerouslySetInnerHTML={{ __html: renderMarkdown(content) }}
+          />
         )}
       </div>
     </div>
